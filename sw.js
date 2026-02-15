@@ -1,7 +1,7 @@
 const CACHE = "workout-tracker-v1";
 const ASSETS = [
-  "/",
-  "/index.html",
+  "/tracker/",
+  "/tracker/index.html",
   "/manifest.json",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
