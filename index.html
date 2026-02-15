@@ -59,16 +59,22 @@ function saveData(data) {
 
 // ─── Exercise Library ──────────────────────────────────────────────────────────
 const WEIGHT_EXERCISES = [
-  "Bench Press","Squat","Deadlift","Overhead Press","Barbell Row",
-  "Pull-up","Dumbbell Curl","Tricep Pushdown","Lat Pulldown",
-  "Leg Press","Romanian Deadlift","Incline Bench Press","Cable Fly",
-  "Dumbbell Row","Face Pull","Lateral Raise","Front Raise",
+  //"Bench Press","Squat","Deadlift","Overhead Press","Barbell Row",
+//  "Pull-up","Dumbbell Curl","Tricep Pushdown","Lat Pulldown",
+//  "Leg Press","Romanian Deadlift","Incline Bench Press","Cable Fly",
+ // "Dumbbell Row","Face Pull","Lateral Raise","Front Raise",
+  "Bench Press","Hack squat", "Shoulder press","RDL","Dips", "Triceps push down", 
+  "Hip Thrust", "Pull ups","Cable row","Rear delt fly", "Preacher curl","Cable crunch",
+  "Incline Bench Press","Hip Thrust light","Hack squat light","Chest fly", "Overhead triceps ext","Lateral Raise",
+  "Leg Curl","Lat Pulldown", "Inclined Row", "Calf Raise","Hammer Curl","Hip aduction","Hip abduction",
+  
 ];
 const BODYWEIGHT_EXERCISES = [
-  "Push-up","Pull-up","Dip","Chin-up","Muscle-up",
-  "Handstand Push-up","Pistol Squat","L-Sit","Planche Lean",
-  "Ring Row","Dragon Flag","Ab Wheel Rollout","Hollow Body Hold",
-  "Archer Push-up","Nordic Curl","Jump Squat",
+ // "Push-up","Pull-up","Dip","Chin-up","Muscle-up",
+ // "Handstand Push-up","Pistol Squat","L-Sit","Planche Lean",
+//  "Ring Row","Dragon Flag","Ab Wheel Rollout","Hollow Body Hold",
+ // "Archer Push-up","Nordic Curl","Jump Squat",
+  "Plank"
 ];
 const ALL_EXERCISES = [...WEIGHT_EXERCISES, ...BODYWEIGHT_EXERCISES];
 const BODYWEIGHT_SET = new Set(BODYWEIGHT_EXERCISES);
