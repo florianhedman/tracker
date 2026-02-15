@@ -41,7 +41,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 
-  <script type="text/babel" data-presets="react">
+  <script type="text/babel" data-presets="react,env">
     const { useState, useEffect } = React;
 
 
@@ -171,7 +171,7 @@ function ExercisePicker({ onSelect, onClose, customExercises, multiSelect, selec
 
   return (
     <div style={{
-      position:"fixed", inset:0, background:"rgba(0,0,0,0.95)", zIndex:200,
+      position:"fixed", top:0, left:0, right:0, bottom:0, background:"rgba(0,0,0,0.95)", zIndex:200,
       display:"flex", flexDirection:"column", maxWidth:480, margin:"0 auto",
     }}>
       <div style={{ padding:"16px 16px 0", borderBottom:"1px solid #222" }}>
@@ -227,11 +227,11 @@ function SetRow({ set, index, bw, onChange, onRemove }) {
     <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:8 }}>
       <span style={{ color:"#444", fontSize:12, width:18, textAlign:"center", flexShrink:0 }}>{index+1}</span>
       {!bw && (
-        <input type="number" placeholder="kg" value={set.weight??""} inputMode="decimal"
+        <input type="number" placeholder="kg" value={set.weight||""} inputMode="decimal"
           onChange={e => onChange({ ...set, weight:e.target.value })}
           style={{ ...S.input, textAlign:"center", flex:1 }} />
       )}
-      <input type="number" placeholder="reps" value={set.reps??""} inputMode="numeric"
+      <input type="number" placeholder="reps" value={set.reps||""} inputMode="numeric"
         onChange={e => onChange({ ...set, reps:e.target.value })}
         style={{ ...S.input, textAlign:"center", flex:1 }} />
       <button onClick={onRemove} style={{ ...S.btn("danger"), padding:"9px 10px", flexShrink:0 }}>
@@ -287,7 +287,7 @@ function AddCustomModal({ onAdd, onClose }) {
     onClose();
   };
   return (
-    <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.92)", zIndex:300, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
+    <div style={{ position:"fixed", top:0, left:0, right:0, bottom:0, background:"rgba(0,0,0,0.92)", zIndex:300, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
       <div style={{ background:"#141414", border:"1px solid #333", borderRadius:2, padding:24, width:"100%", maxWidth:360 }}>
         <div style={{ fontWeight:700, fontSize:15, marginBottom:4 }}>New Custom Exercise</div>
         <div style={{ fontSize:11, color:"#555", marginBottom:16 }}>Saved to your library permanently</div>
@@ -591,7 +591,7 @@ function ProgramsSubView({ data, setData, onLoadPlan, view, setView }) {
       <div style={{ paddingBottom:80 }}>
         {showPicker && (
           <ExercisePicker onSelect={toggleExercise} onClose={() => setShowPicker(false)}
-            customExercises={data.customExercises} multiSelect selected={activeDay?.exercises || []} />
+            customExercises={data.customExercises} multiSelect selected={(activeDay && activeDay.exercises) || []} />
         )}
 
         <div style={{ padding:"16px 16px 0" }}>
@@ -694,7 +694,7 @@ function ProgramsSubView({ data, setData, onLoadPlan, view, setView }) {
   return (
     <div>
       {confirmLoad && (
-        <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.88)", zIndex:150, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
+        <div style={{ position:"fixed", top:0, left:0, right:0, bottom:0, background:"rgba(0,0,0,0.88)", zIndex:150, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
           <div style={{ background:"#141414", border:"1px solid #333", borderRadius:2, padding:24, width:"100%", maxWidth:320 }}>
             <div style={{ fontWeight:700, fontSize:15, marginBottom:4 }}>Start {confirmLoad.prog.name}?</div>
             <div style={{ fontSize:14, color:"#c8ff00", fontWeight:700, marginBottom:4 }}>{confirmLoad.day.label}</div>
@@ -1000,7 +1000,7 @@ function SinglePlansSubView({ data, setData, onLoadPlan, view, setView }) {
   return (
     <div>
       {confirmLoad && (
-        <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.88)", zIndex:150, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
+        <div style={{ position:"fixed", top:0, left:0, right:0, bottom:0, background:"rgba(0,0,0,0.88)", zIndex:150, display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
           <div style={{ background:"#141414", border:"1px solid #333", borderRadius:2, padding:24, width:"100%", maxWidth:320 }}>
             <div style={{ fontWeight:700, fontSize:15, marginBottom:6 }}>Start "{confirmLoad.name}"?</div>
             <div style={{ fontSize:13, color:"#666", marginBottom:20 }}>{confirmLoad.exercises.length} exercises will be pre-loaded.</div>
